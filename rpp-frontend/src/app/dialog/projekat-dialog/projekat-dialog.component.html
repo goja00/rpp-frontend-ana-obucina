@@ -1,16 +1,22 @@
 <div class="container">
-    <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje grupe</h3>
-    <h3 mat-dialog-title *ngIf="flag == 2">Izmena grupe</h3>
-    <h3 mat-dialog-title *ngIf="flag == 3">Brisanje grupe: {{grupa.oznaka}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje projekta</h3>
+    <h3 mat-dialog-title *ngIf="flag == 2">Izmena projekta</h3>
+    <h3 mat-dialog-title *ngIf="flag == 3">Brisanje projekta: {{projekat.naziv}}</h3>
     <form class="mat-dialog-content" #formControl="ngForm">
       <div class="form">
         <mat-form-field>
-          <input matInput placeholder="Oznaka" [(ngModel)]="grupa.oznaka" name="oznaka" [disabled] = "flag == 3" required>
+          <input matInput placeholder="Naziv" [(ngModel)]="projekat.naziv" name="naziv" [disabled] = "flag == 3" required>
         </mat-form-field>
       </div>
       <div class="form">
         <mat-form-field>
-          <input matInput placeholder="Smer" [(ngModel)]="grupa.smer" name="smer" [disabled] = "flag == 3" required>
+          <input matInput placeholder="Opis" [(ngModel)]="projekat.opis" name="opis" [disabled] = "flag == 3" required>
+        </mat-form-field>
+      </div>
+
+      <div class="form">
+        <mat-form-field>
+          <input matInput placeholder="Oznaka" [(ngModel)]="projekat.oznaka" name="oznaka" [disabled] = "flag == 3" required>
         </mat-form-field>
       </div>
       

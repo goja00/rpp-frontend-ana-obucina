@@ -39,7 +39,8 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { GrupaDialogComponent } from './dialog/grupa-dialog/grupa-dialog.component';
 import { SmerDialogComponent } from './dialog/smer-dialog/smer-dialog.component';
 import { StudentDialogComponent } from './dialog/student-dialog/student-dialog.component';
-import { ProjekatStudentComponent } from './dialog/projekat-student/projekat-student.component';
+
+import { ProjekatDialogComponent } from './dialog/projekat-dialog/projekat-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { ProjekatStudentComponent } from './dialog/projekat-student/projekat-stu
     GrupaDialogComponent,
     SmerDialogComponent,
     StudentDialogComponent,
-    ProjekatStudentComponent
+    ProjekatComponent,
+    ProjekatDialogComponent
   ],
   imports: [
     BrowserModule,
