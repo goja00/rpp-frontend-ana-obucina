@@ -12,7 +12,7 @@ import { Projekat } from "../model/projekat.model";
     private readonly API_URL = 'http://localhost:8082/projekat/';
     dataChange: BehaviorSubject<Projekat[]> = new BehaviorSubject<Projekat[]>([]);
 
-    public getAllGrupas(): Observable<Projekat[]> {
+    public getAllProjekts(): Observable<Projekat[]> {
         this.httpClient.get<Projekat[]>(this.API_URL).subscribe({
           next: (data) => {
             this.dataChange.next(data);

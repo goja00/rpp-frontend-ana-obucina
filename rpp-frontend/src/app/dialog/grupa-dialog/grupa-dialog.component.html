@@ -3,6 +3,7 @@
     <h3 mat-dialog-title *ngIf="flag == 2">Izmena grupe</h3>
     <h3 mat-dialog-title *ngIf="flag == 3">Brisanje grupe: {{grupa.oznaka}}</h3>
     <form class="mat-dialog-content" #formControl="ngForm">
+      <div style="padding:1rem;">
       <div class="form">
         <mat-form-field>
           <input matInput placeholder="Oznaka" [(ngModel)]="grupa.oznaka" name="oznaka" [disabled] = "flag == 3" required>
@@ -13,7 +14,8 @@
           <input matInput placeholder="Smer" [(ngModel)]="grupa.smer" name="smer" [disabled] = "flag == 3" required>
         </mat-form-field>
       </div>
-      
+    </div>
+
       <div mat-dialog-actions>
         <button mat-button *ngIf="flag == 1" type="submit" [mat-dialog-close]="1" (click)="add()" [disabled]="!formControl.valid">
           Dodaj

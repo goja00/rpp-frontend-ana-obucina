@@ -1,12 +1,12 @@
 <mat-toolbar color="primary" class="first-color">
-    <span class="title">Grupa</span>
+    <span class="title">Projekti</span>
   </mat-toolbar>
   
   <div class="container mat-elevation-z8">
     
   
 <mat-form-field> 
- <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Pretražite grupe"> 
+ <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Pretražite projekte"> 
   </mat-form-field>    
       <mat-table [dataSource]="dataSource" class="mat-cell third-color" matSort>
   

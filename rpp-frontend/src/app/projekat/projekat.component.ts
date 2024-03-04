@@ -39,7 +39,7 @@ export class ProjekatComponent {
   public loadData() 
   {
  
-    this.projekatService.getAllGrupas().subscribe( data => {
+    this.projekatService.getAllProjekts().subscribe( data => {
      this.dataSource = new MatTableDataSource(data);
      this.dataSource.sortingDataAccessor = (data: any, property) => {
        switch(property) {
@@ -63,9 +63,9 @@ export class ProjekatComponent {
     this.dataSource.filter = filterValue;
   }
 
-  openDialog(flag:number,id:Number,naziv:string,oznaka:String,opis:string,smer:String)
+  openDialog(flag:number,id:Number,naziv:string,oznaka:String,opis:string)
   {
-    const dialog=this.dialog.open(ProjekatDialogComponent,{data:{id:id,naziv:naziv,oznaka:oznaka,opis:opis,smer:smer}})
+    const dialog=this.dialog.open(ProjekatDialogComponent,{data:{id:id,naziv:naziv,oznaka:oznaka,opis:opis}})
     dialog.componentInstance.flag=flag;
     dialog.afterClosed().subscribe(data=>{ if (data===1){this.loadData()}})
   }

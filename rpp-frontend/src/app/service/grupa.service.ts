@@ -24,6 +24,18 @@ import { BehaviorSubject, Observable } from "rxjs";
         return this.dataChange.asObservable();
       }
 
+      public getGrupa(id:number): Observable<Grupa[]> {
+        this.httpClient.get<Grupa[]>(this.API_URL + id).subscribe({
+          next: (data) => {
+            this.dataChange.next(data);
+          },
+          error: (error: HttpErrorResponse) => {
+            console.log(error.name + ' ' + error.message);
+          }}
+        );
+        return this.dataChange.asObservable();
+      }
+      
       public addGrupa(grupa:Grupa): void {
         this.httpClient.post(this.API_URL,grupa).subscribe();
        }

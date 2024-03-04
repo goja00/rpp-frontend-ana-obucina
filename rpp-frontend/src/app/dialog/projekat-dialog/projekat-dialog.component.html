@@ -3,9 +3,10 @@
     <h3 mat-dialog-title *ngIf="flag == 2">Izmena projekta</h3>
     <h3 mat-dialog-title *ngIf="flag == 3">Brisanje projekta: {{projekat.naziv}}</h3>
     <form class="mat-dialog-content" #formControl="ngForm">
+      <div style="padding:1rem;">
       <div class="form">
         <mat-form-field>
-          <input matInput placeholder="Naziv" [(ngModel)]="projekat.naziv" name="naziv" [disabled] = "flag == 3" required>
+          <input matInput width="40%" placeholder="Naziv" [(ngModel)]="projekat.naziv" name="naziv" [disabled] = "flag == 3" required>
         </mat-form-field>
       </div>
       <div class="form">
@@ -13,13 +14,13 @@
           <input matInput placeholder="Opis" [(ngModel)]="projekat.opis" name="opis" [disabled] = "flag == 3" required>
         </mat-form-field>
       </div>
-
-      <div class="form">
+      <div class="form" >
         <mat-form-field>
-          <input matInput placeholder="Oznaka" [(ngModel)]="projekat.oznaka" name="oznaka" [disabled] = "flag == 3" required>
+          <textarea matInput placeholder="Oznaka"  [(ngModel)]="projekat.oznaka" name="oznaka" [disabled] = "flag == 3" required></textarea>
         </mat-form-field>
       </div>
-      
+    </div>
+
       <div mat-dialog-actions>
         <button mat-button *ngIf="flag == 1" type="submit" [mat-dialog-close]="1" (click)="add()" [disabled]="!formControl.valid">
           Dodaj

@@ -12,7 +12,7 @@ import { Smer } from "../model/smer.model";
     private readonly API_URL = 'http://localhost:8082/smer/';
     dataChange: BehaviorSubject<Smer[]> = new BehaviorSubject<Smer[]>([]);
 
-    public getAllGrupas(): Observable<Smer[]> {
+    public getAllSmers(): Observable<Smer[]> {
         this.httpClient.get<Smer[]>(this.API_URL).subscribe({
           next: (data) => {
             this.dataChange.next(data);

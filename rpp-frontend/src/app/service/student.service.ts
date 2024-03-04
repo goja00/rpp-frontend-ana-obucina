@@ -9,10 +9,10 @@ import { Student } from "../model/student.model";
   export class StudentService {
     constructor(private httpClient:HttpClient){}
 
-    private readonly API_URL = 'http://localhost:8082/smer/';
+    private readonly API_URL = 'http://localhost:8082/student/';
     dataChange: BehaviorSubject<Student[]> = new BehaviorSubject<Student[]>([]);
 
-    public getAllGrupas(): Observable<Student[]> {
+    public getAllStudents(): Observable<Student[]> {
         this.httpClient.get<Student[]>(this.API_URL).subscribe({
           next: (data) => {
             this.dataChange.next(data);
