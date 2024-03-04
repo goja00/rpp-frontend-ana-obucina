@@ -56,16 +56,10 @@
         </mat-cell>
       </ng-container>
   
-      <mat-header-row *matHeaderRowDef="displayedColumns"> 
-      <mat-row style="cursor: pointer" *matRowDef="let row; columns: displayedColumns" (click)="selectedRow(row)"
-      [ngClass]="{'selectedRow': selektovanaStudent != null && selektovanaStudent.id == row.id}">
-      </mat-row>
-    </mat-header-row>
+      <mat-header-row *matHeaderRowDef="displayedColumns"> </mat-header-row>
+      <mat-row style="cursor: default" *matRowDef="let row; columns: displayedColumns"> </mat-row>
     </mat-table>
   
     <mat-paginator class='third-color'[pageSize]="5" [pageSizeOptions]="[5,10,20]"> </mat-paginator>
     
-    <div class="container mat-elevation-z8">
-      <app-grupa *ngIf="selektovanaStudent" [selektovanaStudent]="selektovanaStudent"></app-grupa>
-    </div>
 </div>

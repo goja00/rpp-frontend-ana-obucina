@@ -10,6 +10,7 @@ import { Student } from "../model/student.model";
     constructor(private httpClient:HttpClient){}
 
     private readonly API_URL = 'http://localhost:8082/student/';
+    private readonly API_URL_OZNAKA = 'http://localhost:8082/student/grupa/';
     dataChange: BehaviorSubject<Student[]> = new BehaviorSubject<Student[]>([]);
 
     public getAllStudents(): Observable<Student[]> {
@@ -23,6 +24,19 @@ import { Student } from "../model/student.model";
         );
         return this.dataChange.asObservable();
       }
+
+      public getStudent(oznaka:string): Observable<Student[]> {
+        this.httpClient.get<Student[]>(this.API_URL_OZNAKA + oznaka).subscribe({
+          next: (data) => {
+            this.dataChange.next(data);
+          },
+          error: (error: HttpErrorResponse) => {
+            console.log(error.name + ' ' + error.message);
+          }}
+        );
+        return this.dataChange.asObservable();
+      }
+
 
       public addStudent(student:Student): void {
         this.httpClient.post(this.API_URL,student).subscribe();

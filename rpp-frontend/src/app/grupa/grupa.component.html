@@ -50,4 +50,8 @@
   
     <mat-paginator class='third-color'[pageSize]="5" [pageSizeOptions]="[5,10,20]"> </mat-paginator>
     
+    <div class="container mat-elevation-z8">
+      <app-student *ngIf="selektovanaGrupa" [selektovanaGrupa]="selektovanaGrupa"></app-student>
+    </div>
+
 </div>

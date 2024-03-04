@@ -42,29 +42,21 @@ export class GrupaComponent implements OnInit,OnChanges {
   
   public loadGrupa()
   {
-    this.grupaService.getGrupa(this.selektovanaStudent.grupa.id).subscribe( data => {
+    this.grupaService.getAllGrupas().subscribe( data => {
       this.dataSource = new MatTableDataSource(data);
-  
-      this.dataSource.filterPredicate = (data: any, filter: string) => {
-        const accumulator = (currentTerm: string, key: string) => {
-          return key === 'grupa' ? currentTerm + data.grupa.oznaka : currentTerm + data[key];
-        };
-        const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
-        const transformedFilter = filter.trim().toLowerCase();
-        return dataStr.indexOf(transformedFilter) !== -1;
-      };
-  
       this.dataSource.sortingDataAccessor = (data: any, property) => {
         switch(property) {
           case 'id' : return data[property];
           case 'oznaka' : return data[property];
+          
           default: return data[property].toLocaleLowerCase();
         }
       };
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      this.dataSource.sort = this.sort; 
+      
     })
-    console.log(this.selektovanaStudent)
+    
   }
 
    selectedRow(row:Grupa)

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Student } from '../model/student.model';
 import { MatPaginator } from '@angular/material/paginator';
@@ -14,11 +14,11 @@ import { Projekat } from '../model/projekat.model';
   templateUrl: './student.component.html',
   styleUrls: ['./student.component.css']
 })
-export class StudentComponent {
+export class StudentComponent implements OnInit,OnChanges {
 
   displayedColumns=['id','broj_indeksa','ime','prezime','grupa','projekat','actions'];
   dataSource!:MatTableDataSource<Student>;
-  selektovanaStudent!:Student
+  @Input()selektovanaGrupa!:Grupa
 
   grupa1!:Grupa
   projekat1!:Projekat
@@ -35,7 +35,7 @@ export class StudentComponent {
   }
 
   ngOnChanges(){
-    if(this.selektovanaStudent.id)
+    if(this.selektovanaGrupa.oznaka)
     {
       this.loadData()
     }
@@ -43,27 +43,32 @@ export class StudentComponent {
 
   public loadData() 
   {
- 
-    this.studentService.getAllStudents().subscribe( data => {
-     this.dataSource = new MatTableDataSource(data);
-     this.dataSource.sortingDataAccessor = (data: any, property) => {
-       switch(property) {
-         case 'id' : return data[property];
-         case 'ime' : return data[property];
-         case 'prezime' : return data[property];
-         case 'grupa' : return data[property];
-         default: return data[property].toLocaleLowerCase();
-       }
-     };
-     this.dataSource.paginator = this.paginator;
-     this.dataSource.sort = this.sort;
-   })
+    this.studentService.getStudent(this.selektovanaGrupa.oznaka).subscribe( data => {
+      this.dataSource = new MatTableDataSource(data);
+
+      this.dataSource.filterPredicate = (data: any, filter: string) => {
+        const accumulator = (currentTerm: string, key: string) => {
+          return key === 'grupa' ? currentTerm + data.grupa.oznaka : currentTerm + data[key];
+        };
+        const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
+        const transformedFilter = filter.trim().toLowerCase();
+        return dataStr.indexOf(transformedFilter) !== -1;
+      };
+
+      this.dataSource.sortingDataAccessor = (data: any, property) => {
+        switch(property) {
+          case 'id' : return data[property];
+          case 'oznaka' : return data[property];
+          default: return data[property].toLocaleLowerCase();
+        }
+      };
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+
+    })
+   
    }
 
-   selectedRow(row:Student)
-  {
-  this.selektovanaStudent=row
-  }
   applyFilter(filterValue : string) {
     filterValue.trim();
     filterValue = filterValue.toLowerCase();
