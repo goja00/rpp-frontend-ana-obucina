@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,16 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class HomeComponent implements OnInit {
+  
+  
+  constructor(private scroller: ViewportScroller){}
+
+scroll(){
+  this.scroller.scrollToAnchor("opis")
+}
+scroll1(){
+  this.scroller.scrollToAnchor("autor")
+}
   ngOnInit(): void {
     
   }

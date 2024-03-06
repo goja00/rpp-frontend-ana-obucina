@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { distinct } from 'rxjs';
 import { Grupa } from 'src/app/model/grupa.model';
 import { Projekat } from 'src/app/model/projekat.model';
 import { Student } from 'src/app/model/student.model';
@@ -30,11 +31,12 @@ export class StudentDialogComponent   {
   
   ngOnInit(){
     this.grupaService.getAllGrupas().subscribe(data=>{this.grupas=data})
-    this.projekatService.getAllProjekts().subscribe(data=>{this.projekats=data})
+    this.projekatService.getAllProjekts().pipe(distinct()).subscribe(data=>{this.projekats=data; console.log(data)})
   }
 
   add()
   {
+
   this.studentService.addStudent(this.student)
   this.snackBar.open('Uspesno ste dodali studenta!','OK',{duration:1500})
   

@@ -47,10 +47,10 @@
           </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary" (click)="openDialog(2,row.id,row.broj_indeksa,row.ime,row.prezime,row.grupa.oznaka,row.projekat.naziv)">
+          <button mat-icon-button color="primary" (click)="openDialog(2,row.id,row.brojIndeksa,row.ime,row.prezime,row.grupa,row.projekat)">
             <mat-icon arial label="Edit">edit</mat-icon>
           </button>
-          <button mat-icon-button color="primary" (click)="openDialog(3,row.id,row.broj_indeksa,row.ime,row.prezime,row.grupa.oznaka,row.projekat.naziv)" >
+          <button mat-icon-button color="primary" (click)="openDialog(3,row.id,row.brojIndeksa,row.ime,row.prezime,row.grupa,row.projekat)" >
             <mat-icon arial label="Delete">delete</mat-icon>
           </button>
         </mat-cell>

@@ -1,17 +1,17 @@
 <div class="container">
-    <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje smera</h3>
-    <h3 mat-dialog-title *ngIf="flag == 2">Izmena smera</h3>
-    <h3 mat-dialog-title *ngIf="flag == 3">Brisanje smera:<br>{{smer.naziv}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 1"style="text-align: center;">Dodavanje smera</h3>
+    <h3 mat-dialog-title *ngIf="flag == 2"style="text-align: center;">Izmena smera: {{smer.naziv}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 3"style="text-align: center;">Brisanje smera:<br>{{smer.naziv}}</h3>
     <form class="mat-dialog-content" #formControl="ngForm">
       <div style="padding:1rem;">
       <div class="form">
         <mat-form-field>
-          <input matInput placeholder="Naziv" [(ngModel)]="smer.naziv" name="naziv" [disabled] = "flag == 3" required>
+          <textarea  matInput placeholder="Naziv" [(ngModel)]="smer.naziv" name="naziv" [disabled] = "flag == 3" required></textarea>
         </mat-form-field>
       </div>
       <div class="form" >
         <mat-form-field>
-          <textarea  matInput placeholder="Oznaka"  [(ngModel)]="smer.oznaka" name="oznaka" [disabled] = "flag == 3" required></textarea>
+          <input matInput placeholder="Oznaka"  [(ngModel)]="smer.oznaka" name="oznaka" [disabled] = "flag == 3" required>
         </mat-form-field>
       </div>
     </div>

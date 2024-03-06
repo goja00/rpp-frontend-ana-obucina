@@ -29,12 +29,6 @@ export class ProjekatComponent {
     this.loadData();
   }
 
-  ngOnChanges(){
-    if(this.selektovanaProjekat.id)
-    {
-      this.loadData()
-    }
-  }
 
   public loadData() 
   {
@@ -63,9 +57,9 @@ export class ProjekatComponent {
     this.dataSource.filter = filterValue;
   }
 
-  openDialog(flag:number,id:Number,naziv:string,oznaka:String,opis:string)
+  openDialog(flag:number,id:Number,naziv:string,opis:string,oznaka:String,)
   {
-    const dialog=this.dialog.open(ProjekatDialogComponent,{data:{id:id,naziv:naziv,oznaka:oznaka,opis:opis}})
+    const dialog=this.dialog.open(ProjekatDialogComponent,{data:{id:id,naziv:naziv,opis:opis,oznaka:oznaka,}})
     dialog.componentInstance.flag=flag;
     dialog.afterClosed().subscribe(data=>{ if (data===1){this.loadData()}})
   }

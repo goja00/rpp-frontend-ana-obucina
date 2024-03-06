@@ -77,7 +77,7 @@ export class StudentComponent implements OnInit,OnChanges {
 
   openDialog(flag:number,id:Number,broj_indeksa:string,ime:string,prezime:string,grupa:Grupa,projekat:Projekat)
   {
-    const dialog=this.dialog.open(StudentDialogComponent,{data:{id:id,broj_indeksa:broj_indeksa,ime:ime,prezime:prezime,grup:grupa,projekat:projekat}})
+    const dialog=this.dialog.open(StudentDialogComponent,{data:{id:id,broj_indeksa:broj_indeksa,ime:ime,prezime:prezime,grupa:grupa,projekat:projekat}})
     dialog.componentInstance.flag=flag;
     dialog.afterClosed().subscribe(data=>{ if (data===1){this.loadData()}})
   }

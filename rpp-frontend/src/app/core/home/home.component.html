@@ -3,7 +3,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1>Eterna</h1>
+        <h1>StudentSphere</h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -11,9 +11,9 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#author">Services</a></li>
+          <li><a class="active" href="/home">Počenta</a></li>
+          <li><a (click)="scroll()" style="cursor:pointer;">O nama</a></li>
+          <li><a (click)="scroll1()" style="cursor:pointer;">Autor</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -23,7 +23,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div id="heroCarousel" class="carousel slide " data-bs-ride="carousel">
 
         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
@@ -33,9 +33,12 @@
           <div class="carousel-item active" style="background-image: url(assets/data/img/slide/slide-1.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Eterna</span></h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+                <h2 class="animate__animated animate__fadeInDown">Dobrodošli u <span>StudentSphere</span></h2>
+                <p class="animate__animated animate__fadeInUp">Vaša digitalna platforma za sve informacije o studentima, grupama, 
+					smerovima i projektima. Sa intuitivnim dizajnom i bogatim setom funkcija, StudentSphere olakšava upravljanje 
+					studentskim podacima i projektnim aktivnostima. Povežite se sa svojim kolegama, istražujte nove mogućnosti i ostvarite 
+					svoje akademske ciljeve uz StudentSphere!"</p>
+                <a [routerLink]="['/projekat']" class="btn-get-started animate__animated animate__fadeInUp">Započnite</a>
               </div>
             </div>
           </div>
@@ -46,39 +49,8 @@
 
   <main id="main">
 
-    <!-- ======= Featured Section ======= -->
-    <section id="featured" class="featured">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="icon-box">
-              
-              <h3><a href="">Lorem Ipsum</a></h3>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </div>
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="icon-box">
-             
-              <h3><a href="">Dolor Sitema</a></h3>
-              <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </div>
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="icon-box">
-            
-              <h3><a href="">Sed ut perspiciatis</a></h3>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Featured Section -->
-
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <section id="autor" class="about">
       <div class="container">
 
         <div class="row">
@@ -86,16 +58,15 @@
             <img src="assets/data/img/about.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h3>O autoru</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
               magna aliqua.
             </p>
         
             <p>
               Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
+              velit esse cillum dolore eu fugiat nulla pariatur. 
             </p>
           </div>
         </div>
@@ -105,54 +76,38 @@
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
-      <div class="container">
-
+      <div class="container" id="opis">
+		<h1><b>O aplikaciji</b></h1>
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
 				<div class="icon"></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <h4><a href="">Grupa</a></h4>
+              <p>Sadrži informacije o ID,oznaci i smeru kojem grupa pripada.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
 				<div class="icon"></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <h4><a href="">Smer</a></h4>
+              <p>Sadrži informacije vezane za ID,naziv i oznaku smera.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
 				<div class="icon"></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <h4><a href="">Projekat</a></h4>
+              <p>Sadrži informacije o ID, nazivu, opisu i oznaci projekta</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
 				<div class="icon"></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-				<div class="icon"></div>
-              <h4><a href="">Dele cardo</a></h4>
-              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-            <div class="icon-box">
-              <div class="icon"></div>
-              <h4><a href="">Divera don</a></h4>
-              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+              <h4><a href="">Student</a></h4>
+              <p>Sadrži informacije o ID, imenu, prezimenu, broju indeksa, grupi i projektu studenta. </p>
             </div>
           </div>
 
@@ -173,7 +128,7 @@
         <div class="row">
           <div class="col-lg-6">
             <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <p>Budite prvi koji će dobiti informacije o novostima!</p>
           </div>
           <div class="col-lg-6">
             <form action="" method="post">

@@ -1,7 +1,9 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Grupa } from 'src/app/model/grupa.model';
 import { Projekat } from 'src/app/model/projekat.model';
+import { GrupaService } from 'src/app/service/grupa.service';
 import { ProjekatService } from 'src/app/service/projekat.service';
 
 @Component({
@@ -9,17 +11,22 @@ import { ProjekatService } from 'src/app/service/projekat.service';
   templateUrl: './projekat-dialog.component.html',
   styleUrls: ['./projekat-dialog.component.css']
 })
-export class ProjekatDialogComponent {
+export class ProjekatDialogComponent implements OnInit {
 
   
   public flag!:number
+  
 
   constructor(
   @Inject(MAT_DIALOG_DATA)public projekat:Projekat,
   public dialogRef: MatDialogRef<ProjekatDialogComponent>,
   public projekatService:ProjekatService,
+  public grupaService:GrupaService,
   public snackBar: MatSnackBar,
   ){}
+  ngOnInit(): void {
+   
+  }
   
   add()
   {

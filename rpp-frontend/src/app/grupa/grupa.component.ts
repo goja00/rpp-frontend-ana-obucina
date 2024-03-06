@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { GrupaService } from '../service/grupa.service';
 import { GrupaDialogComponent } from '../dialog/grupa-dialog/grupa-dialog.component';
 import { Student } from '../model/student.model';
+import { Smer } from '../model/smer.model';
 
 @Component({
   selector: 'app-grupa',
@@ -20,7 +21,7 @@ export class GrupaComponent implements OnInit,OnChanges {
   selektovanaGrupa!:Grupa
   @Input() 
   selektovanaStudent!:Student
-  
+  smer!:Smer
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
@@ -69,7 +70,7 @@ export class GrupaComponent implements OnInit,OnChanges {
     this.dataSource.filter = filterValue;
   }
 
-  openDialog(flag:number,id:Number,oznaka:String,smer:String)
+  openDialog(flag:number,id:Number,oznaka:String,smer:Smer)
   {
     const dialog=this.dialog.open(GrupaDialogComponent,{data:{id:id,oznaka:oznaka,smer:smer}})
     dialog.componentInstance.flag=flag;

@@ -1,7 +1,7 @@
 <div class="container">
-    <h3 mat-dialog-title *ngIf="flag == 1">Dodavanje projekta</h3>
-    <h3 mat-dialog-title *ngIf="flag == 2">Izmena projekta</h3>
-    <h3 mat-dialog-title *ngIf="flag == 3">Brisanje projekta: {{projekat.naziv}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 1" style="text-align: center;">Dodavanje projekta</h3>
+    <h3 mat-dialog-title *ngIf="flag == 2" style="text-align: center;">Izmena projekta:<br> {{projekat.naziv}}</h3>
+    <h3 mat-dialog-title *ngIf="flag == 3" style="text-align: center;">Brisanje projekta: <br>{{projekat.naziv}}</h3>
     <form class="mat-dialog-content" #formControl="ngForm">
       <div style="padding:1rem;">
       <div class="form">
@@ -11,12 +11,12 @@
       </div>
       <div class="form">
         <mat-form-field>
-          <input matInput placeholder="Opis" [(ngModel)]="projekat.opis" name="opis" [disabled] = "flag == 3" required>
+          <textarea matInput placeholder="Opis" [(ngModel)]="projekat.opis" name="opis" [disabled] = "flag == 3" required></textarea>
         </mat-form-field>
       </div>
       <div class="form" >
         <mat-form-field>
-          <textarea matInput placeholder="Oznaka"  [(ngModel)]="projekat.oznaka" name="oznaka" [disabled] = "flag == 3" required></textarea>
+          <input matInput placeholder="Oznaka"  [(ngModel)]="projekat.oznaka" name="oznaka" [disabled] = "flag == 3" required>
         </mat-form-field>
       </div>
     </div>
